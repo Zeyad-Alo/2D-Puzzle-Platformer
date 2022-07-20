@@ -10,19 +10,26 @@ public class LeverTrigger : MonoBehaviour
 
     public GameObject wall;
 
+    private GameObject player;
+
     bool IsOn = false;
 
     // Start is called before the first frame update
     void Start()
     {
         OnLever.SetActive(false);
+
+        player = GameObject.FindWithTag("Player");
     }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        ToggleLever();
-        Debug.Log("activated");
+        if (player.GetComponent<SpriteRenderer> ().sprite.name == "alienYellow_badge1")
+        {
+            ToggleLever();
+            Debug.Log("activated");
+        }
     }
 
     void ToggleLever()

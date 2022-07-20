@@ -7,6 +7,7 @@ public class ParticleGun : MonoBehaviour
 
     private ParticleSystem _particleSystem;
     private ParticleSystem.EmissionModule emission;
+    private GameObject player;
 
     Vector3 mousePos;
 
@@ -15,13 +16,15 @@ public class ParticleGun : MonoBehaviour
         _particleSystem = gameObject.GetComponent<ParticleSystem>();
         emission = _particleSystem.emission;
         emission.enabled = false;
+
+        player = GameObject.FindWithTag("Player");
      }
 
     // Update is called once per frame
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && player.GetComponent<SpriteRenderer> ().sprite.name == "alienPink_badge1")
         {
             emission.enabled = true;
         }

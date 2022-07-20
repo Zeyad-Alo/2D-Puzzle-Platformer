@@ -37,13 +37,13 @@ public class ParticleCollisionTrigger : MonoBehaviour
         active = !active;
         if (active)
         {
-            Color tempcolor = new Color(0.764151f,0,0,1);
+            Color tempcolor = new Color(1,1,1,1);
             walltrigger.GetComponent<Tilemap> ().color = tempcolor;
             walltrigger.layer = LayerMask.NameToLayer("Closed");
         }
         else
         {
-            Color tempcolor = new Color(0.764151f,0,0,0.2745098f);
+            Color tempcolor = new Color(1,1,1,0.2745098f);
             walltrigger.GetComponent<Tilemap> ().color = tempcolor;
             walltrigger.layer = LayerMask.NameToLayer("Open");
         }

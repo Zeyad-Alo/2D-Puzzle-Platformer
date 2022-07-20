@@ -36,6 +36,7 @@ public class SpringButton : MonoBehaviour
             count += 1;
 
             player.GetComponent<SpriteRenderer> ().sprite = spriteArray[count % spriteArray.Length];
+            Debug.Log(player.GetComponent<SpriteRenderer> ().sprite);
         }
         else if (Mathf.Abs(currentpos - initpos) < 0.5f && !activated)
         {
