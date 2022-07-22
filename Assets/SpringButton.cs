@@ -35,8 +35,8 @@ public class SpringButton : MonoBehaviour
             activated = false;
             count += 1;
 
+            gameObject.GetComponent<AudioSource>().Play();
             player.GetComponent<SpriteRenderer> ().sprite = spriteArray[count % spriteArray.Length];
-            Debug.Log(player.GetComponent<SpriteRenderer> ().sprite);
         }
         else if (Mathf.Abs(currentpos - initpos) < 0.5f && !activated)
         {
