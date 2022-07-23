@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+using UnityEngine.Events;
+
 public class LeverTrigger : MonoBehaviour
 {
     public GameObject OffLever;
@@ -16,6 +18,14 @@ public class LeverTrigger : MonoBehaviour
     private AudioSource OnAs;
 
     bool IsOn = false;
+
+    [Header("Events")]
+	[Space]
+
+	public UnityEvent LeverTriggerEvent;
+
+    [System.Serializable]
+	public class BoolEvent : UnityEvent<bool> { }
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +44,12 @@ public class LeverTrigger : MonoBehaviour
     {
         if (int.Parse(player.GetComponent<SpriteRenderer> ().sprite.name) < 11)
         {
-            ToggleLever();
+            LeverTriggerEvent.Invoke();
             Debug.Log("activated");
         }
     }
 
-    void ToggleLever()
+    public void ToggleLever()
     {
         if (IsOn)
         {

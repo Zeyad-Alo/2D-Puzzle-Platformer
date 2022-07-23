@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ParticleTriggered
+  - HealthTag
   layers:
   - Default
   - TransparentFX

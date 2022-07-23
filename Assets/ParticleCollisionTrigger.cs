@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class ParticleCollisionTrigger : MonoBehaviour
 {
     public GameObject walltrigger;
-    float health = 5f;
+    float health = 10f;
     bool active = true;
+
+    private TextMeshProUGUI Tag;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject t = GameObject.FindWithTag("HealthTag");
+        Tag = t.GetComponent<TextMeshProUGUI>();
     }
 
     void OnParticleCollision(GameObject obj)
@@ -19,6 +24,7 @@ public class ParticleCollisionTrigger : MonoBehaviour
         if (obj.tag == "ParticleTriggered")
         {
             health -= 1;
+            Tag.SetText(health.ToString());
         }
     }
 
@@ -33,7 +39,7 @@ public class ParticleCollisionTrigger : MonoBehaviour
 
     void Toggle()
     {
-        health = 5;
+        health = 10f;
         active = !active;
         if (active)
         {
