@@ -24,7 +24,7 @@ public class ParticleGun : MonoBehaviour
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButton(0) && player.GetComponent<SpriteRenderer> ().sprite.name == "alienPink_badge1")
+        if (Input.GetMouseButton(0) && int.Parse(player.GetComponent<SpriteRenderer> ().sprite.name) > 10)
         {
             emission.enabled = true;
         }

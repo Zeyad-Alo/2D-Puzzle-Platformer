@@ -169,9 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteArray:
-  - {fileID: 21300000, guid: adaf083a19c500648af4e0b94df39715, type: 3}
-  - {fileID: 21300000, guid: c9e73b907ef50d2478c8de791a2a9991, type: 3}
-  - {fileID: 21300000, guid: 3c5c0e3b3e0482c43b8d19262460ec24, type: 3}
+  - {fileID: 21300000, guid: 73776b545399ce049ac1dbd4646843a7, type: 3}
+  - {fileID: 21300000, guid: 77eb8e0a04412eb4585f3723c8edba38, type: 3}
   player: {fileID: 0}
 --- !u!82 &6367792620645532608
 AudioSource:

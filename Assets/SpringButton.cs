@@ -7,6 +7,8 @@ public class SpringButton : MonoBehaviour
     public Sprite[] spriteArray;
     public GameObject player;
 
+    public Animator animator;
+
     float initpos;
     float currentpos;
     bool activated = true;
@@ -23,6 +25,8 @@ public class SpringButton : MonoBehaviour
     {
         currentpos = gameObject.transform.position.x;
         ToggleButton();
+        string name = player.GetComponent<SpriteRenderer> ().sprite.name;
+        animator.SetInteger("SpriteIndex", int.Parse(name));
     }
 
     void ToggleButton()

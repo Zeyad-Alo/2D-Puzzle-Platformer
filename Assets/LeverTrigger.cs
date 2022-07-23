@@ -32,7 +32,7 @@ public class LeverTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (player.GetComponent<SpriteRenderer> ().sprite.name == "alienYellow_badge1")
+        if (int.Parse(player.GetComponent<SpriteRenderer> ().sprite.name) < 11)
         {
             ToggleLever();
             Debug.Log("activated");
