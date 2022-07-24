@@ -14,6 +14,8 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	public bool IsInputEnabled = true;
+
 	[Header("Events")]
 	[Space]
 
@@ -52,29 +54,33 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool jump)
 	{
-		// Move the character by finding the target velocity
-		Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-		// And then smoothing it out and applying it to the character
-		m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+		if (IsInputEnabled)
+		{
+			
+			// Move the character by finding the target velocity
+			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+			// And then smoothing it out and applying it to the character
+			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-		// If the input is moving the player right and the player is facing left...
-		if (move > 0 && !m_FacingRight)
-		{
-			// ... flip the player.
-			Flip();
-		}
-		// Otherwise if the input is moving the player left and the player is facing right...
-		else if (move < 0 && m_FacingRight)
-		{
-			// ... flip the player.
-			Flip();
-		}
-		// If the player should jump...
-		if (m_Grounded && jump)
-		{
-			// Add a vertical force to the player.
-			m_Grounded = true;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			// If the input is moving the player right and the player is facing left...
+			if (move > 0 && !m_FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+			// Otherwise if the input is moving the player left and the player is facing right...
+			else if (move < 0 && m_FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+			// If the player should jump...
+			if (m_Grounded && jump)
+			{
+				// Add a vertical force to the player.
+				m_Grounded = true;
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			}
 		}
 	}
 

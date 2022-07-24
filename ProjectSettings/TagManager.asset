@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ParticleTriggered
   - HealthTag
+  - ReplayMenu
+  - EventSystem
   layers:
   - Default
   - TransparentFX

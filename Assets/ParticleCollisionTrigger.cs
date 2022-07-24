@@ -40,6 +40,7 @@ public class ParticleCollisionTrigger : MonoBehaviour
     void Toggle()
     {
         health = 10f;
+        Tag.SetText(health.ToString());
         active = !active;
         if (active)
         {
